@@ -2,7 +2,6 @@
 
 # LAB | DOM Race Car
 
-
 ![Island Racer Logo](images/logo.png)
 
 <details>
@@ -79,7 +78,7 @@ The start screen is already displayed on the page, as shown below.
 
 ![island racer game start screen](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/m1/lab-dom-race-car/lab-dom-race-car-start-screen.png)
 
-Upon clicking the **Start Game** button, the player should transition from the _start screen_ to the _game screen_, initiating the game. 
+Upon clicking the **Start Game** button, the player should transition from the _start screen_ to the _game screen_, initiating the game.
 
 In the next iteration, we will create the `Game` class and implement the functionality required to **start** the game.
 
@@ -122,7 +121,7 @@ In this iteration, you will create the `Game` class in the `js/game.js` file. Th
 
    Initializes the game by executing the following sequence of steps when called:
 
-   - Sets the height and width of the game screen.
+   - Sets the height and width of the html element that holds the game screen.
    - Hides the start screen.
    - Shows the game screen.
    - Starts the game loop by calling the `gameLoop()` method. We will create a `gameLoop` method in the following iteration.
@@ -180,7 +179,7 @@ class Game {
 
     // Hide the start screen
     this.startScreen.style.display = "none";
-    
+
     // Show the game screen
     this.gameScreen.style.display = "block";
 
@@ -278,11 +277,12 @@ In this iteration, we will create the `Player` class, representing the player's 
      - `1`: moving horizontally to the right
      - `-1`: moving horizontally to the left
    - `directionY` - initially set to 0. It is used to specify the **vertical** movement direction and can have the following values:
+
      - `0`: not moving vertically
      - `1`: moving vertically down
      - `-1`: moving vertically up
 
-   - `element` - the **image** element representing the car. This image element should be created in the constructor using the *provided image source (image url) passed as an argument* to the constructor.
+   - `element` - the **image** element representing the car. This image element should be created in the constructor using the _provided image source (image url) passed as an argument_ to the constructor.
 
    <br>
 
@@ -401,8 +401,6 @@ class Player {
       return false;
     }
   }
-
-
 }
 ```
 
@@ -414,7 +412,7 @@ class Player {
 
 ## Iteration 4: Add the Player to the Game
 
-1. As a reminder, we have already defined the `player` property of the `Game` class and set it to `null`. Now let's instantiate a new `Player` object and store it in the `player` property of the `Game`. 
+1. As a reminder, we have already defined the `player` property of the `Game` class and set it to `null`. Now let's instantiate a new `Player` object and store it in the `player` property of the `Game`.
 
 <details>
 	<summary>See the code</summary>
@@ -469,11 +467,7 @@ class Game {
 
 <br>
 
-
-
 ![island racer game - player car showing](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/m1/lab-dom-race-car/lab-dom-race-car-player.png)
-
-
 
 <br>
 
@@ -481,7 +475,7 @@ class Game {
 
 The goal of this iteration is to allow the player to control the car using the keyboard.
 
-To do this, we will add an event listener in the `js/script.js` file, which will update the player's car `directionX` and `directionY` properties based on the keys that the user presses on the keyboard. 
+To do this, we will add an event listener in the `js/script.js` file, which will update the player's car `directionX` and `directionY` properties based on the keys that the user presses on the keyboard.
 This function listens for the `keydown` event using `document.onkeydown` and checks if the pressed key matches any of the allowed keystrokes (arrow keys).
 
 <details>
@@ -577,7 +571,7 @@ In this iteration, we will create the `Obstacle` class, which will be used to cr
    <details>
      <summary> <code><b>move()</b></code> </summary>
 
-   - Move the obstacle down by 3px by continuously updating its `top` property. 
+   - Move the obstacle down by 3px by continuously updating its `top` property.
 
    - Update the obstacle's position on the screen by calling the `updatePosition()` method.
 
@@ -663,16 +657,15 @@ This method is responsible for updating the game state during each loop iteratio
 
 - Check if the player has run out of lives, and end the game if so. Create a new method (`endGame`) responsible for ending the game.
 
-
 </details>
  
  <details>
    <summary> <code><b>endGame()</b></code> </summary>
 
- - Remove a player and all the obstacles from the DOM.
- - Set the `gameIsOver` flag to `true`.
- - Hide the game screen.
- - Show the end game screen.
+- Remove a player and all the obstacles from the DOM.
+- Set the `gameIsOver` flag to `true`.
+- Hide the game screen.
+- Show the end game screen.
 
  </details>
 
@@ -737,7 +730,7 @@ class Game {
   // Create a new method responsible for ending the game
   endGame() {
     this.player.element.remove();
-    this.obstacles.forEach(obstacle => obstacle.element.remove());
+    this.obstacles.forEach((obstacle) => obstacle.element.remove());
 
     this.gameIsOver = true;
 
@@ -757,13 +750,9 @@ class Game {
 
 <br>
 
-
-
 <img src="https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/m1/lab-dom-race-car/lab-dom-race-car-start-game-obstacles.gif" width="600" style="display: block; margin: 0 auto" />
 
 <br>
-
-
 
 ## Iteration 8: End Game Screen
 
@@ -907,7 +896,6 @@ class Player extends Component {
     }
   }
 }
-
 ```
 
 <br>
@@ -933,16 +921,12 @@ class Obstacle extends Component {
     // Update the obstacle's position on the screen
     this.updatePosition();
   }
-  
 }
-
 ```
 
 <br>
 
 </details>
-
-
 
 <br>
 
@@ -956,7 +940,7 @@ To make the game more competitive, add elements to shows the player's score and 
 
 ## Lab Solution
 
-You can find the complete solution code for the lab at:  [dom-race-car](https://github.com/ironhack-labs/lesson-code-dom-race-car).
+You can find the complete solution code for the lab at: [dom-race-car](https://github.com/ironhack-labs/lesson-code-dom-race-car).
 
 To clone the solution repository, run the following commands:
 
@@ -967,8 +951,6 @@ git clone https://github.com/ironhack-labs/lesson-code-dom-race-car.git
 # navigate to the cloned repo
 cd lesson-code-dom-race-car
 ```
-
-
 
 <br>
 
